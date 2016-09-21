@@ -2,7 +2,7 @@ PShape obj;
 
 void setup() {
   size(500, 500, P3D);
-  //obj = loadShape("Untitled_1.obj");
+  obj = loadShape("Untitled_1.obj");
 }
 
 void draw() {
