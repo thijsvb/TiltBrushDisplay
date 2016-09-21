@@ -2,7 +2,7 @@
 Ways to display Tilt Brush sketches outside of the HTC Vive
 
 ##Exporting from Tilt Brush
-Google has some [documentation](https://support.google.com/tiltbrush/answer/6389651?hl=en&ref_topic=7074683) on how to export files from Tilt Brush. The file types are:
+Google has some [documentation](https://support.google.com/tiltbrush/answer/6389651?hl=en&ref_topic=7074683) and some more indepth [release notes](https://docs.google.com/document/d/11ZsHozYn9FnWG7y3s3WAyKIACfbfwb4PbaS8cZ_xjvo/edit#) on how to export files from Tilt Brush. The file types are:
  * Video's
  * GIF's
  * 2D pictures
