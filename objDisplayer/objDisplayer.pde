@@ -1,10 +1,13 @@
 PShape obj;
+PImage tex;
 
 void setup() {
   size(500, 500, P3D);
   obj = loadShape("Untitled_1.obj");
   obj.scale(10);
   obj.scale(1, -1, 1);
+  
+  tex = loadImage("test.png");
 }
 
 void draw() {
@@ -45,5 +48,6 @@ void draw() {
   text(" Y", 0, 0, 0);
   popMatrix();
   
+  texture(tex);
   shape(obj);
 }
