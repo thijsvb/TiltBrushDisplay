@@ -16,4 +16,4 @@ Google's documentation doesn't say anything about the amount of information stor
 Video's, GIF's and pictures are fairly easy to display in a lot of environments. However, they don't capture te full experience of Tilt Brush art, because you can't see them in 3D. To try and come a little closer, I'm going to try to import the art in Processing and then try making an AR app (possibly with stereoscopic view). 
 
 ###Importing in Processing
-Importing an `.obj` file is fairly simple, but it might not contain any material information. If that is the case, I could try to generate a texture from the JSON file or look at the `.fbx` format.
+Importing an `.obj` file is fairly simple, but it doesn't have a texture. According to the [OBJ Wikipedia page](https://en.wikipedia.org/wiki/Wavefront_.obj_file) it stores [UV mapping information](https://en.wikipedia.org/wiki/UV_mapping), so it should be able to get a texture when we add one. However, there's a problem in Processing; you can't apply textures to loaded shapes. [Forum thread about the problem](https://forum.processing.org/one/topic/changing-materials-on-imported-obj-pshapes.html) that might be useful.
