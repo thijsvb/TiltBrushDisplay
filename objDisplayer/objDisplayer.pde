@@ -3,10 +3,10 @@ PImage tex;
 
 void setup() {
   size(500, 500, P3D);
-  obj = loadShape("Untitled_1.obj");
-  obj.scale(10);
-  obj.scale(1, -1, 1);
-  println(obj.getChildCount());
+  PShape tempobj = loadShape("Untitled_1.obj");
+  tempobj.scale(10);
+  tempobj.scale(1, -1, 1);
+  obj = copyShape(tempobj);
   
   tex = loadImage("test.png");
 }
@@ -51,4 +51,16 @@ void draw() {
   
   texture(tex);
   shape(obj);
+}
+
+PShape copyShape(PShape parent) {
+  PShape[] faces = new PShape[parent.getChildCount()];
+  PShape output = createShape();
+  
+  for(int i=0; i!=faces.length; ++i){
+    faces[i] = parent.getChild(i);
+  }
+  
+  
+  return output;
 }
