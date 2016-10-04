@@ -6,6 +6,7 @@ void setup() {
   obj = loadShape("Untitled_1.obj");
   obj.scale(10);
   obj.scale(1, -1, 1);
+  println(obj.getChildCount());
   
   tex = loadImage("test.png");
 }
