@@ -1,24 +1,56 @@
-PShape obj;
-PImage tex;
+PShape[] obj;
+float ax, ay;
 
 void setup() {
   size(500, 500, P3D);
-  PShape tempobj = loadShape("Untitled_1.obj");
-  tempobj.scale(10);
-  tempobj.scale(1, -1, 1);
-  obj = copyShape(tempobj);
-  
-  tex = loadImage("test.png");
+  obj = loadShapeWithTex("Untitled_1.obj", "test.png");
+  for (int i=0; i!=obj.length; ++i) {
+    obj[i].scale(10);
+    obj[i].scale(1, -1, 1);
+  }
+}
+
+void mouseDragged() {
+  ax = map(mouseY, 0, width, -PI, PI);
+  ay = map(mouseX, 0, width, -PI, PI);
 }
 
 void draw() {
-  background(0);
+  background(255);
   translate(width/2, height/2);
-  float ax = map(mouseY, 0, width, -PI, PI);
-  float ay = map(mouseX, 0, width, -PI, PI);
   rotateX(ax);
   rotateY(ay);
-  
+
+  drawAxis();
+
+  for (int i=0; i!=obj.length; ++i) {
+    shape(obj[i]);
+  }
+}
+
+PShape[] loadShapeWithTex(String objPath, String texPath) {
+  PShape parent = loadShape(objPath);
+  PImage tex = loadImage(texPath);
+  PShape[] faces = new PShape[parent.getChildCount()];
+
+  for (int i=0; i!=faces.length; ++i) {
+    PShape s = createShape();
+    s.beginShape();
+
+    for (int j=0; j!=parent.getChild(i).getVertexCount(); ++j) {
+      s.vertex(parent.getChild(i).getVertex(j).x, 
+        parent.getChild(i).getVertex(j).y, 
+        parent.getChild(i).getVertex(j).z);
+    }
+
+    s.endShape();
+    faces[i] = s;
+  }
+
+  return faces;
+}
+
+void drawAxis() {
   fill(0, 0, 255);
   stroke(0, 0, 255);
   line(0, 0, 0, 0, 0, 500);
@@ -28,7 +60,7 @@ void draw() {
   rotateY(-ay);
   text(" Z", 0, 0, 0);
   popMatrix();
-  
+
   fill(255, 0, 0);
   stroke(255, 0, 0);
   line(0, 0, 0, 500, 0, 0);
@@ -38,7 +70,7 @@ void draw() {
   rotateY(-ay);
   text(" X", 0, 0, 0);
   popMatrix();
-  
+
   fill(0, 255, 0);
   stroke(0, 255, 0);
   line(0, 0, 0, 0, 500, 0);
@@ -48,19 +80,4 @@ void draw() {
   rotateY(-ay);
   text(" Y", 0, 0, 0);
   popMatrix();
-  
-  texture(tex);
-  shape(obj);
-}
-
-PShape copyShape(PShape parent) {
-  PShape[] faces = new PShape[parent.getChildCount()];
-  PShape output = createShape();
-  
-  for(int i=0; i!=faces.length; ++i){
-    faces[i] = parent.getChild(i);
-  }
-  
-  
-  return output;
 }
