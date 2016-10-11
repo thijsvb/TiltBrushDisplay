@@ -36,7 +36,7 @@ PShape[] loadShapeWithTex(String objPath, String texPath) {
   for (int i=0; i!=faces.length; ++i) {
     PShape s = createShape();
     s.beginShape();
-
+    s.noStroke();
     for (int j=0; j!=parent.getChild(i).getVertexCount(); ++j) {
       s.vertex(parent.getChild(i).getVertex(j).x, 
         parent.getChild(i).getVertex(j).y, 
@@ -45,6 +45,7 @@ PShape[] loadShapeWithTex(String objPath, String texPath) {
 
     s.endShape();
     faces[i] = s;
+    //println(parent.getChild(i).getVertexCount());
   }
 
   return faces;
