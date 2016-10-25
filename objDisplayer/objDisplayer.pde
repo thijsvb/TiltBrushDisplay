@@ -1,13 +1,17 @@
-PShape[] obj;
+//PShape[] obj;
+PShape obj;
 float ax, ay;
+PShader s;
 
 void setup() {
   size(500, 500, P3D);
-  obj = loadShapeWithTex("Untitled_1.obj", "test.png");
-  for (int i=0; i!=obj.length; ++i) {
-    obj[i].scale(10);
-    obj[i].scale(1, -1, 1);
-  }
+  //obj = loadShapeWithTex("Untitled_1.obj", "test.png");
+  //for (int i=0; i!=obj.length; ++i) {
+  //  obj[i].scale(10);
+  //  obj[i].scale(1, -1, 1);
+  //}
+  obj = loadShape("Untitled_1.obj");
+  s = loadShader("shader.glsl");
 }
 
 void mouseDragged() {
@@ -22,34 +26,37 @@ void draw() {
   rotateY(ay);
 
   drawAxis();
+  
+  shader(s);
+  shape(obj);
 
-  for (int i=0; i!=obj.length; ++i) {
-    shape(obj[i]);
-  }
+  //for (int i=0; i!=obj.length; ++i) {
+  //  shape(obj[i]);
+  //}
 }
 
-PShape[] loadShapeWithTex(String objPath, String texPath) {
-  PShape parent = loadShape(objPath);
-  PImage tex = loadImage(texPath);
-  PShape[] faces = new PShape[parent.getChildCount()];
+//PShape[] loadShapeWithTex(String objPath, String texPath) {
+//  PShape parent = loadShape(objPath);
+//  PImage tex = loadImage(texPath);
+//  PShape[] faces = new PShape[parent.getChildCount()];
 
-  for (int i=0; i!=faces.length; ++i) {
-    PShape s = createShape();
-    s.beginShape();
-    s.noStroke();
-    for (int j=0; j!=parent.getChild(i).getVertexCount(); ++j) {
-      s.vertex(parent.getChild(i).getVertex(j).x, 
-        parent.getChild(i).getVertex(j).y, 
-        parent.getChild(i).getVertex(j).z);
-    }
+//  for (int i=0; i!=faces.length; ++i) {
+//    PShape s = createShape();
+//    s.beginShape();
+//    s.noStroke();
+//    for (int j=0; j!=parent.getChild(i).getVertexCount(); ++j) {
+//      s.vertex(parent.getChild(i).getVertex(j).x, 
+//        parent.getChild(i).getVertex(j).y, 
+//        parent.getChild(i).getVertex(j).z);
+//    }
 
-    s.endShape();
-    faces[i] = s;
-    //println(parent.getChild(i).getVertexCount());
-  }
+//    s.endShape();
+//    faces[i] = s;
+//    //println(parent.getChild(i).getVertexCount());
+//  }
 
-  return faces;
-}
+//  return faces;
+//}
 
 void drawAxis() {
   fill(0, 0, 255);
