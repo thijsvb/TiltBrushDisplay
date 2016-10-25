@@ -23,7 +23,7 @@ There's also the option of using the shaders Google provides in their [release n
 However, I don't think figuring more out for Processing will be usefull, as I imagine using Unity or 3D modeling software like Blender will be more practicle for most cases.
 
 ###Importing in Unity
-As mentioned in the [resease notes], you can import the `.fbx` file in Unity. Adding the shader is also possible and the textures created on export.
+As mentioned in the [release notes], you can import the `.fbx` file in Unity. Adding the shader is also possible and the textures created on export.
 
 
 
