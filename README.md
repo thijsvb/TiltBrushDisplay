@@ -19,8 +19,9 @@ Video's, GIF's and pictures are fairly easy to display in a lot of environments.
 [Sketchfab](http://sketchfab.com) is a website for sharing 3D models. It has a great viewer for exploring 3D models and embed code to display models on other websites. There are two options for uploading:
 
  * Just the `.fbx` file
- * The `.fbx` file together with all the `.png` textures in a zip folder
-The latter will ofcourse render your model with textures.
+ * The `.fbx` file together with `.png` textures in a zip folder
+
+The latter will render your model with textures. However it applies one texture to everything, so it only really works for models that use one brush.
 
 ###Importing in Processing
 Importing an `.obj` file is fairly simple, but it doesn't have a texture. According to the [OBJ Wikipedia page](https://en.wikipedia.org/wiki/Wavefront_.obj_file) it stores [UV mapping information](https://en.wikipedia.org/wiki/UV_mapping), so it should be able to get a texture when we add one. However, there's a problem in Processing; you can't apply textures to loaded shapes. [Forum thread about the problem](https://forum.processing.org/one/topic/changing-materials-on-imported-obj-pshapes.html) that might be useful.
