@@ -23,6 +23,8 @@ Video's, GIF's and pictures are fairly easy to display in a lot of environments.
 
 The latter will render your model with textures. However it applies one texture to everything, so it only really works for models that use one brush.
 
+[Here](https://thijsvb.github.io/TiltBrushDisplay/) is an example I made, trying out all the different Tilt Brush brushes.
+
 ###Importing in Processing
 Importing an `.obj` file is fairly simple, but it doesn't have a texture. According to the [OBJ Wikipedia page](https://en.wikipedia.org/wiki/Wavefront_.obj_file) it stores [UV mapping information](https://en.wikipedia.org/wiki/UV_mapping), so it should be able to get a texture when we add one. However, there's a problem in Processing; you can't apply textures to loaded shapes. [Forum thread about the problem](https://forum.processing.org/one/topic/changing-materials-on-imported-obj-pshapes.html) that might be useful.
 
