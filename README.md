@@ -36,7 +36,9 @@ However, I don't think figuring more out for Processing will be usefull, as I im
 Blender will take either the `.obj` or the `.fbx` file. But the `.fbx` file has to be converted to binary FBX (Google's python script create ASCII FBX). Luckily there is some free [Autodesk software](http://usa.autodesk.com/adsk/servlet/pc/item?siteID=123112&id=22694909) for doing just that. I haven't tried adding textures yet.
 
 ###Importing in Unity
-As mentioned in the [release notes], you can import the `.fbx` file in Unity. Adding the shader and the textures created on export is also possible. Appearently a good way to do it is to first import the files in Houdini, see [this tutorial](https://youtu.be/FZ8vAbPmViU).
+As mentioned in the [release notes], you can import the `.fbx` file in Unity. ~~Adding the shader and the textures created on export is also possible. Appearently a good way to do it is to first import the files in Houdini, see [this tutorial](https://youtu.be/FZ8vAbPmViU).~~ 
+
+Google recently released their [Tilt Brush Unity SDK](https://github.com/googlevr/tilt-brush-toolkit/releases)! Following their [documentation](https://docs.google.com/document/d/1YID89te9oDjinCkJ9R65bLZ3PpJk1W4S1SM2Ccc6-9w), you can import sketches into Unity and they'll look just like they did in Tilt Brush!
 
 
 
